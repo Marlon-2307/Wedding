@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>María & Juan - Nuestra Boda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">  <style
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Libertinus+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Libertinus Serif', serif;
+      color: #1e1b19;
+      background-color: #ffffff;
+    }
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('./image/boda-en-la-playa.jpg') center/cover fixed no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55); /* Ajusta el 0.45 para más o menos oscuridad */
+      z-index: 1;
+    }
+    header > * {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-family: 'Libertinus Serif', serif;
+      font-size: 60px;
+      font-weight: 400;
+      margin: 5px;
+    }
+    #titulo {
+      font-family: 'Parisienne', cursive;
+      font-size: 100px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    #titulo-fecha {
+      font-family: 'Libertinus Serif', serif;
+      font-size: 40px;
+      margin: 2px 0;
+      font-style: none;
+    }
+
+    .arrow-down {
+      margin-top: 60px;
+      width: 20px;
+      height: 20px;
+      border-left: 4px solid #fff;
+      border-bottom: 4px solid #fff;
+      transform: rotate(-45deg);
+      animation: bounce 1.5s infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(-45deg);}
+      50% { transform: translateY(18px) rotate(-45deg);}
+    }
+    section { 
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(166,124,82,0.08), 0 1.5px 8px rgba(166,124,82,0.08);
+      transition: box-shadow 0.3s;
+      position: relative;
+      z-index: 2;
+    }
+    section:hover {
+      box-shadow: 0 16px 40px rgba(166,124,82,0.15), 0 3px 16px rgba(166,124,82,0.12);
+    }
+    h2 {
+      font-size: 50px;
+      color: #000000;
+      font-family: 'Parisienne', cursive;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+    p {
+      font-family: 'Libertinus Serif', serif;
+      font-size: 35px;
+      margin: 2px 0;
+      font-style: italic;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(90deg, #a67c52 60%, #e7cba9 100%);
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(166,124,82,0.10);
+      transition: background 0.3s, transform 0.2s;
+      font-weight: 500;
+      margin-top: 40px;
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #8c6239 60%, #c9a47a 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+    }
+    .parallax1 {
+      background-image: url('./image/boda-en-la-playaaa.jpg');
+    }
+    .parallax2 {
+      background-image: url('https://i.imgur.com/5ZQ5Z5Q.jpg');
+    }
+
+    #countdown {
+      font-size: 28px;
+      font-family: 'Montserrat', sans-serif;
+      color: #292928;
+      background: #f3e5d8;
+      padding: 18px 0;
+      border-radius: 16px;
+      margin: 0 auto 20px auto;
+      width: 80%;
+      box-shadow: 0 2px 8px rgba(166,124,82,0.06);
+      letter-spacing: 2px;
+      font-weight: 500;
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    footer {
+      background-color: #f3e5d8;
+      padding: 40px 20px;
+      font-style: italic;
+      text-align: center;
+      font-size: 25px;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/Perfect-Ed-Sheeran.mpeg" type="audio/mpeg">
+  </audio>
+  </audio>
+  <button id="play-music" style="position:fixed;top:25px;right:25px;z-index:999;font-size:22px;padding:12px 18px;border-radius:8px;background:#a67c52;color:#fff;border:none;cursor:pointer;">
+    ▶ Reproduceme
+  </button>
+
+  <header>
+    <h1>¡Nos casamos!</h1>
+    <p id="titulo">Marlon & Melissa</p>
+    <p id="titulo-fecha">01 de Noviembre de 2025, 4:00 pm.</p>
+    <div class="arrow-down"></div>
+  </header>
+
+  <section>
+    <h2>Conteo Regresivo</h2>
+    <p id="countdown"></p>
+  </section>
+
+  <section>
+    <h2>Lugar</h2>
+    <p>
+      Restaurante Torvic<br>
+      Carrera 50 #72-191 Local 1, Barranquilla
+    </p>
+     <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9984356,-74.8076549,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh?hl=es&entry=ttu" target="_blank">Ver Mapa</a>
+  </section>
+
+   <div class="parallax parallax1"></div>
+
+    <section>
+      <p>Tu presencia es nuestro mejor regalo.</p>
+      <p>Queremos compartir este momento tan especial con ustedes.
+        Con el deseo de vivir este dia junto a quienes mas queremos, hemos optado por una modalidad
+        sencilla: Cada invitado podra disfrutar del menu de su eleccion y cubrir su consumo.
+      </p>
+    </section>
+
+    <section>
+      <h2>Confirmar Asistencia</h2>
+      <p>Por favor confirma tu asistencia antes del 15 de octubre.</p>
+      <a class="btn" href="https://wa.me/573006052169?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa.%20Mi%20nombre%20es," target="_blank">Confirmar con Marlon</a>
+      <a class="btn" href="https://wa.me/5730016026147?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa.%20Mi%20nombre%20es," target="_blank">Confirmar con Melissa</a>
+    </section>
+
+   <section>
+      <h2>Codigo de Vestimenta</h2>
+      <p>Estilo casual.</p>
+    </section>
+
+  <footer>
+    ¡Gracias por acompañarnos en este día tan especial!<br>
+    <span>"Ahora permanecen estos tres vínculos: la fe, la esperanza y el amor."</span><br>
+    1 Corintios 13:13
+  </footer>
+
+  <script>
+    const eventDate = new Date("2025-11-01T16:00:00").getTime();
+    const countdown = document.getElementById("countdown");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdown.innerHTML = `${days} días, ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+  </script>
+
+  <script>
+    document.getElementById('play-music').onclick = function() {
+      document.getElementById('bg-music').play();
+      this.style.display = 'none';
+    };
+  </script>
+</body>
+</html>
