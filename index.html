@@ -18,7 +18,7 @@
     header {
       position: relative;
       height: 100vh;
-      background: url('./image/boda-en-la-playa.jpg') center/cover fixed no-repeat;
+      background: url('./image/boda.jpg') center/cover fixed no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -30,7 +30,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55); /* Ajusta el 0.45 para más o menos oscuridad */
+      background: rgba(0,0,0,0.55);
       z-index: 1;
     }
     header > * {
@@ -111,6 +111,7 @@
       transition: background 0.3s, transform 0.2s;
       font-weight: 500;
       margin-top: 40px;
+      margin-left: 5px;
     }
     .btn:hover {
       background: linear-gradient(90deg, #8c6239 60%, #c9a47a 100%);
@@ -157,6 +158,33 @@
     audio {
       display: none;
     }
+
+    /* Media Queries */
+    @media (max-width: 480px) {
+      header h1 { font-size: 32px; }
+      #titulo { font-size: 60px; }
+      #titulo-fecha { font-size: 24px; }
+      section { padding: 30px 15px; margin: 20px auto; }
+      h2 { font-size: 36px; }
+      p { font-size: 20px; }
+      .btn { font-size: 16px; padding: 10px 20px; margin-top: 20px; }
+      #countdown { font-size: 20px; width: 90%; }
+      footer { font-size: 18px; padding: 20px 10px; }
+      #play-music { font-size: 18px; padding: 10px 14px; }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      header h1 { font-size: 40px; }
+      #titulo { font-size: 80px; }
+      #titulo-fecha { font-size: 30px; }
+      section { padding: 40px 20px; }
+      h2 { font-size: 42px; }
+      p { font-size: 28px; }
+      .btn { font-size: 17px; padding: 12px 28px; }
+      #countdown { font-size: 24px; width: 85%; }
+      footer { font-size: 22px; }
+      #play-music { font-size: 20px; padding: 12px 16px; }
+    }
   </style>
 </head>
 <body>
@@ -164,7 +192,7 @@
     <source src="audio/Perfect-Ed-Sheeran.mpeg" type="audio/mpeg">
   </audio>
   </audio>
-  <button id="play-music" style="position:fixed;top:25px;right:25px;z-index:999;font-size:22px;padding:12px 18px;border-radius:8px;background:#a67c52;color:#fff;border:none;cursor:pointer;">
+  <button id="play-music" style="position:fixed;top:25px;right:25px;z-index:999;font-size:22px;padding:12px 18px;border-radius:8px;background:#a67c52be;color:#fff;border:none;cursor:pointer;animation: bounce;">
     ▶ Reproduceme
   </button>
 
@@ -183,10 +211,10 @@
   <section>
     <h2>Lugar</h2>
     <p>
-      Restaurante Torvic<br>
+      Torvic Rest bar<br>
       Carrera 50 #72-191 Local 1, Barranquilla
     </p>
-     <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9984356,-74.8076549,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh?hl=es&entry=ttu" target="_blank">Ver Mapa</a>
+     <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9984356,-74.8076549,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh?hl=es&entry=ttu" target="_blank">Ubicacion</a>
   </section>
 
    <div class="parallax parallax1"></div>
@@ -209,7 +237,7 @@
    <section>
       <h2>Codigo de Vestimenta</h2>
       <p>Estilo casual.</p>
-    </section>
+   </section>
 
   <footer>
     ¡Gracias por acompañarnos en este día tan especial!<br>
