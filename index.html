@@ -58,7 +58,7 @@
     header {
       position: relative;
       height: 100vh;
-      background: url('./image/boda.jpg') center/cover fixed no-repeat;
+      background: url('./image/wedding.jpg') center/cover fixed no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -230,7 +230,7 @@
     }
 
     .parallax1 {
-      background-image: url('./image/boda-en-la-playaaa.jpg');
+      background-image: url('./image/wedding-3.jpg');
     }
 
     .parallax::before,
@@ -260,7 +260,7 @@
       top: 25px;
       right: 25px;
       z-index: 999;
-      font-size: 50px;              
+      font-size: 60px;              
       padding: 5px;                 
       background: transparent;     
       color: #e7bebe;
@@ -273,7 +273,7 @@
     }
 
     #play-music:hover {
-      transform: scale(1.2); /* Un poco más grande al pasar encima */
+      transform: scale(1.2); 
     }
 
     /* Keyframes para difuminar y reaparecer */
@@ -365,16 +365,36 @@
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
-    
+
+    .botones-lugar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .botones-lugar {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .botones-lugar .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+    }
+
   </style>
 </head>
 <body>
-
   <!-- SOBRE DE BIENVENIDA -->
   <div id="overlay">
     <div id="envelope" onclick="openInvitation()">
-      <p>Bienvenidos a la invitación de<br>
-        Marlon & Melissa</p>
+      <p>Nuestra boda, Marlon & Melissa<br>
+        #BodaM&M
+        </p>
     </div>
   </div>
 
@@ -407,9 +427,18 @@
   <section>
     <h2>Lugar de la Ceremonia</h2>
     <div class="section-ornamento"></div>
+    
     <p class="nombre-lugar">Torvic Rest bar</p>
     <p class="direccion">Carrera 50 #72-191 Local 1, Barranquilla</p>
-    <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9979414,-74.8030506,15.5z/data=!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank">¿Cómo llegar?</a>
+    
+    <div class="botones-lugar">
+      <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9979414,-74.8030506,15.5z/data=!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh" target="_blank">
+        ¿Cómo llegar?
+      </a>
+      <a class="btn instagram" href="https://www.instagram.com/restaurantetorvic/" target="_blank">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
+    </div>
   </section>
 
   <div class="parallax parallax1"></div>
@@ -423,8 +452,10 @@
     <h2>Confirmar Asistencia</h2>
     <div class="section-ornamento"></div>
     <p>Por favor confirma tu asistencia antes del 15 de octubre.</p>
-    <a class="btn" href="https://wa.me/573006052169?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Marlon</a>
-    <a class="btn" href="https://wa.me/573016026147?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Melissa</a>
+    <div class="botones-lugar">
+      <a class="btn" href="https://wa.me/573006052169?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Marlon</a>
+      <a class="btn" href="https://wa.me/573016026147?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Melissa</a>
+    </div>
   </section>
 
   <section>
