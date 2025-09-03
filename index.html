@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>María & Juan - Nuestra Boda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">  <style
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Libertinus+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">>
+  <title>M&M - Nuestra Boda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Serif&family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -12,9 +13,47 @@
     }
     body {
       font-family: 'Libertinus Serif', serif;
-      color: #1e1b19;
       background-color: #ffffff;
+      color: #3e2f25;
     }
+
+    /* SOBRE DE BIENVENIDA */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background-color: #f3e5d8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeIn 1s ease;
+    }
+    #envelope {
+      cursor: pointer;
+      text-align: center;
+      animation: pulse 2s infinite;
+    }
+    #envelope p {
+      font-size: 50px;
+      margin-top: 20px;
+      color: #a67c52;
+      font-family: 'Libertinus Serif', serif;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadeOutUp {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-100px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* HEADER */
     header {
       position: relative;
       height: 100vh;
@@ -30,7 +69,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.70);
       z-index: 1;
     }
     header > * {
@@ -38,66 +77,130 @@
       z-index: 2;
     }
     header h1 {
-      font-family: 'Libertinus Serif', serif;
       font-size: 60px;
       font-weight: 400;
-      margin: 5px;
+    }
+    .subtitulo {
+      font-family: 'Libertinus Serif', serif;
+      font-size: 28px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f3e5d8;
+      margin-bottom: 10px;
     }
     #titulo {
       font-family: 'Parisienne', cursive;
       font-size: 100px;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin: 30px 0;
+      color: #fff;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6);
     }
-
+    #titulo span {
+      color: #e7cba9;
+    }
     #titulo-fecha {
-      font-family: 'Libertinus Serif', serif;
-      font-size: 40px;
-      margin: 2px 0;
-      font-style: none;
+      font-size: 32px;
+      margin-top: 10px;
+      font-style: italic;
+      color: #f3e5d8;
     }
+    .ornamento {
+      margin: 25px auto;
+      width: 120px;
+      height: 2px;
+      background: #e7cba9;
+      position: relative;
+    }
+    .ornamento::before,
+    .ornamento::after {
+      content: "❧";
+      font-size: 22px;
+      position: absolute;
+      top: -14px;
+      color: #e7cba9;
+    }
+    .ornamento::before { left: -30px; }
+    .ornamento::after { right: -30px; }
 
     .arrow-down {
-      margin-top: 60px;
-      width: 20px;
-      height: 20px;
+      margin-top: 80px;
+      width: 30px;
+      height: 30px;
       border-left: 4px solid #fff;
       border-bottom: 4px solid #fff;
       transform: rotate(-45deg);
       animation: bounce 1.5s infinite;
       opacity: 0.8;
     }
-
     @keyframes bounce {
       0%, 100% { transform: translateY(0) rotate(-45deg);}
       50% { transform: translateY(18px) rotate(-45deg);}
     }
-    section { 
-      padding: 60px 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(166,124,82,0.08), 0 1.5px 8px rgba(166,124,82,0.08);
-      transition: box-shadow 0.3s;
+
+    /* Separador ondulado header */
+    .custom-shape-divider-bottom {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .custom-shape-divider-bottom svg {
       position: relative;
-      z-index: 2;
+      display: block;
+      width: calc(150% + 1.3px);
+      height: 120px;
     }
-    section:hover {
-      box-shadow: 0 16px 40px rgba(166,124,82,0.15), 0 3px 16px rgba(166,124,82,0.12);
+    .custom-shape-divider-bottom path {
+      fill: #ffffff;
     }
+
+    /* SECCIONES SIN BOX SHADOW */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 0 0 80px 80px;
+      position: relative;
+    }
+    section:nth-child(even) {
+      background: #ffffff;
+    }
+    section:nth-child(odd) {
+      background: #fdf8f4;
+    }
+
+    .section-ornamento {
+      width: 120px;
+      height: 2px;
+      background: #e7cba9;
+      margin: 30px auto;
+      position: relative;
+    }
+    .section-ornamento::before,
+    .section-ornamento::after {
+      content: "❧";
+      font-size: 20px;
+      position: absolute;
+      top: -14px;
+      color: #e7cba9;
+    }
+    .section-ornamento::before { left: -30px; }
+    .section-ornamento::after { right: -30px; }
+
     h2 {
       font-size: 50px;
-      color: #000000;
+      color: #a67c52;
       font-family: 'Parisienne', cursive;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       font-weight: 400;
     }
     p {
-      font-family: 'Libertinus Serif', serif;
-      font-size: 35px;
-      margin: 2px 0;
+      font-size: 30px;
       font-style: italic;
+      margin: 15px 0;
     }
     .btn {
       display: inline-block;
@@ -107,47 +210,39 @@
       text-decoration: none;
       font-size: 18px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(166,124,82,0.10);
       transition: background 0.3s, transform 0.2s;
       font-weight: 500;
-      margin-top: 40px;
-      margin-left: 5px;
+      margin-top: 30px;
     }
     .btn:hover {
       background: linear-gradient(90deg, #8c6239 60%, #c9a47a 100%);
       transform: translateY(-2px) scale(1.04);
     }
+
+    /* PARALLAX */
     .parallax {
       background-attachment: fixed;
       background-size: cover;
       background-position: center;
       height: 400px;
+      position: relative;
     }
+
     .parallax1 {
       background-image: url('./image/boda-en-la-playaaa.jpg');
     }
-    .parallax2 {
-      background-image: url('https://i.imgur.com/5ZQ5Z5Q.jpg');
+
+    .parallax::before,
+    .parallax::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1200x;
+      background: #fff;
+      left: 0;
+      z-index: 2;
     }
 
-    #countdown {
-      font-size: 28px;
-      font-family: 'Montserrat', sans-serif;
-      color: #292928;
-      background: #f3e5d8;
-      padding: 18px 0;
-      border-radius: 16px;
-      margin: 0 auto 20px auto;
-      width: 80%;
-      box-shadow: 0 2px 8px rgba(166,124,82,0.06);
-      letter-spacing: 2px;
-      font-weight: 500;
-      animation: fadeIn 1.2s;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
     footer {
       background-color: #f3e5d8;
       padding: 40px 20px;
@@ -155,89 +250,173 @@
       text-align: center;
       font-size: 25px;
     }
-    audio {
-      display: none;
+
+    audio { display: none; }
+
+    /* Botón de música */
+    #play-music {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 999;
+      font-size: 50px;
+      padding: 10px 22px;
+      background: #a67c522a;
+      color: #e7bebe;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    /* Media Queries */
-    @media (max-width: 480px) {
-      header h1 { font-size: 32px; }
-      #titulo { font-size: 60px; }
-      #titulo-fecha { font-size: 24px; }
-      section { padding: 30px 15px; margin: 20px auto; }
-      h2 { font-size: 36px; }
-      p { font-size: 20px; }
-      .btn { font-size: 16px; padding: 10px 20px; margin-top: 20px; }
-      #countdown { font-size: 20px; width: 90%; }
-      footer { font-size: 18px; padding: 20px 10px; }
-      #play-music { font-size: 18px; padding: 10px 14px; }
+    /* CÍRCULO CON AROS SOLO PARA CONTEO */
+    #countdown-section {
+      position: relative;
+      z-index: 5;
+      margin-top: -170px;
+      text-align: center;
+      background: none;
+    }
+    .circle-wrapper {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(166,124,82,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Libertinus Serif', serif;
+      z-index: 2;
+      overflow: visible;
+    }
+    .circle-wrapper h2 {
+      font-size: 40px;
+      color: #a67c52;
+      margin-bottom: 20px;
+    }
+    #countdown {
+      font-size: 30px;
+      font-weight: bold;
+      color: #3e2f25;
+      margin-bottom: 15px;
     }
 
-    @media (min-width: 481px) and (max-width: 768px) {
-      header h1 { font-size: 40px; }
-      #titulo { font-size: 80px; }
-      #titulo-fecha { font-size: 30px; }
-      section { padding: 40px 20px; }
-      h2 { font-size: 42px; }
-      p { font-size: 28px; }
-      .btn { font-size: 17px; padding: 12px 28px; }
-      #countdown { font-size: 24px; width: 85%; }
-      footer { font-size: 22px; }
-      #play-music { font-size: 20px; padding: 12px 16px; }
+    /* Aros decorativos */
+    .circle-wrapper span {
+      position: absolute;
+      border: 3px solid #c5a777;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: spin 25s linear infinite;
+      opacity: 0.5;
+    }
+    .circle-wrapper span:nth-child(4) {
+      width: 400px;
+      height: 400px;
+      top: -30px;
+      left: -20px;
+    }
+    .circle-wrapper span:nth-child(5) {
+      width: 420px;
+      height: 420px;
+      top: -30px;
+      left: -50px;
+      animation-duration: 30s;
+      transform: rotate(10deg);
+      opacity: 0.4;
+    }
+    .circle-wrapper span:nth-child(6) {
+      width: 450px;
+      height: 450px;
+      top: -40px;
+      left: -40px;
+      animation-duration: 40s;
+      transform: rotate(25deg);
+      opacity: 0.5;
+    }
+    .circle-wrapper span:nth-child(7) {
+      width: 500px;
+      height: 500px;
+      top: -60px;
+      left: -60px;
+      animation-duration: 50s;
+      transform: rotate(-15deg);
+      opacity: 0.45;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
+
+  <!-- SOBRE DE BIENVENIDA -->
+  <div id="overlay">
+    <div id="envelope" onclick="openInvitation()">
+      <p>Bienvenidos a la invitación de<br>
+        Marlon & Melissa</p>
+    </div>
+  </div>
+
   <audio id="bg-music" autoplay loop>
     <source src="audio/Perfect-Ed-Sheeran.mpeg" type="audio/mpeg">
   </audio>
-  </audio>
-  <button id="play-music" style="position:fixed;top:25px;right:25px;z-index:999;font-size:22px;padding:12px 18px;border-radius:8px;background:#a67c52be;color:#fff;border:none;cursor:pointer;animation: bounce;">
-    ▶ Reproduceme
-  </button>
+  <button id="play-music">▶</button>
 
   <header>
-    <h1>¡Nos casamos!</h1>
-    <p id="titulo">Marlon & Melissa</p>
-    <p id="titulo-fecha">01 de Noviembre de 2025, 4:00 pm.</p>
+    <h2 class="subtitulo">¡Nos casamos!</h2>
+    <h1 id="titulo">Marlon <span>&</span> Melissa</h1>
+    <p id="titulo-fecha">01 de Noviembre de 2025 · 4:00 pm</p>
+    <div class="ornamento"></div>
     <div class="arrow-down"></div>
   </header>
 
-  <section>
-    <h2>Conteo Regresivo</h2>
-    <p id="countdown"></p>
+  <!-- Círculo del conteo -->
+  <section id="countdown-section">
+    <div class="circle-wrapper">
+      <h2>Conteo regresivo</h2>
+      <div id="countdown"></div>
+      <!-- Aros decorativos -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </section>
 
   <section>
-    <h2>Lugar</h2>
-    <p>
-      Torvic Rest bar<br>
-      Carrera 50 #72-191 Local 1, Barranquilla
-    </p>
-     <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/@10.9984356,-74.8076549,17z/data=!3m1!4b1!4m6!3m5!1s0x8ef42d9bc17af799:0x487cc6874d1369c2!8m2!3d10.9984356!4d-74.80508!16s%2Fg%2F11s2_szmzh?hl=es&entry=ttu" target="_blank">Ubicacion</a>
+    <h2>Lugar de la Ceremonia</h2>
+    <div class="section-ornamento"></div>
+    <p class="nombre-lugar">Torvic Rest bar</p>
+    <p class="direccion">Carrera 50 #72-191 Local 1, Barranquilla</p>
+    <a class="btn" href="https://www.google.com/maps/place/Torvic+Rest+bar/" target="_blank">¿Cómo llegar?</a>
   </section>
 
-   <div class="parallax parallax1"></div>
+  <div class="parallax parallax1"></div>
 
-    <section>
-      <p>Tu presencia es nuestro mejor regalo.</p>
-      <p>Queremos compartir este momento tan especial con ustedes.
-        Con el deseo de vivir este dia junto a quienes mas queremos, hemos optado por una modalidad
-        sencilla: Cada invitado podra disfrutar del menu de su eleccion y cubrir su consumo.
-      </p>
-    </section>
+  <section>
+    <h2>“Todos somos mortales, hasta el primer beso y la segunda copa de vino.”</h2>
+    <div class="section-ornamento"></div>
+  </section>
 
-    <section>
-      <h2>Confirmar Asistencia</h2>
-      <p>Por favor confirma tu asistencia antes del 15 de octubre.</p>
-      <a class="btn" href="https://wa.me/573006052169?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa.%20Mi%20nombre%20es," target="_blank">Confirmar con Marlon</a>
-      <a class="btn" href="https://wa.me/5730016026147?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa.%20Mi%20nombre%20es," target="_blank">Confirmar con Melissa</a>
-    </section>
+  <section>
+    <h2>Confirmar Asistencia</h2>
+    <div class="section-ornamento"></div>
+    <p>Por favor confirma tu asistencia antes del 15 de octubre.</p>
+    <a class="btn" href="https://wa.me/573006052169?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Marlon</a>
+    <a class="btn" href="https://wa.me/5730016026147?text=Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Marlon%20y%20Melissa" target="_blank">Confirmar con Melissa</a>
+  </section>
 
-   <section>
-      <h2>Codigo de Vestimenta</h2>
-      <p>Estilo casual.</p>
-   </section>
+  <section>
+    <h2>Código de Vestimenta</h2>
+    <div class="section-ornamento"></div>
+    <p>Estilo casual.</p>
+  </section>
 
   <footer>
     ¡Gracias por acompañarnos en este día tan especial!<br>
@@ -245,7 +424,19 @@
     1 Corintios 13:13
   </footer>
 
+  <!-- Scripts -->
   <script>
+    function openInvitation() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.animation = "fadeOutUp 0.8s forwards";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 800);
+    }
+    document.getElementById('play-music').onclick = function() {
+      document.getElementById('bg-music').play();
+      this.style.display = 'none';
+    };
     const eventDate = new Date("2025-11-01T16:00:00").getTime();
     const countdown = document.getElementById("countdown");
     setInterval(() => {
@@ -255,15 +446,8 @@
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdown.innerHTML = `${days} días, ${hours}h ${minutes}m ${seconds}s`;
+      countdown.innerHTML = `${days} días | ${hours}h | ${minutes}m | ${seconds}s`;
     }, 1000);
-  </script>
-
-  <script>
-    document.getElementById('play-music').onclick = function() {
-      document.getElementById('bg-music').play();
-      this.style.display = 'none';
-    };
   </script>
 </body>
 </html>
