@@ -58,7 +58,7 @@
     header {
       position: relative;
       height: 100vh;
-      background: url('./image/wedding.jpg') center/cover fixed no-repeat;
+      background: url('./image/wedding-3.jpg') center/cover fixed no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -70,7 +70,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.70);
+      background: rgba(0,0,0,0.60);
       z-index: 1;
     }
     header > * {
@@ -230,7 +230,7 @@
     }
 
     .parallax1 {
-      background-image: url('./image/wedding-3.jpg');
+      background-image: url('./image/wedding.jpg');
     }
 
     .parallax::before,
@@ -238,7 +238,7 @@
       content: "";
       position: absolute;
       width: 100%;
-      height: 1200x;
+      height: none;
       background: #fff;
       left: 0;
       z-index: 2;
@@ -434,7 +434,7 @@
   </div>
 
   <audio id="bg-music" autoplay loop>
-    <source src="audio/Perfect-Ed-Sheeran.mpeg" type="audio/mpeg">
+    <source src="audio/Perfect-Ed-Sheeran.mpeg" type="audio/mpeg" aria-label="reproductor">
   </audio>
   <button id="play-music"><i class="fa-solid fa-music"></i></button>
 
@@ -497,7 +497,7 @@
     <h2>Código de Vestimenta</h2>
     <div class="section-ornamento"></div>
     <p>Estilo casual elegante.</p>
-      <a class="btn" href="https://co.pinterest.com/search/pins/?q=estilo%20casual%20elegante%20hombre%20y%20mujer&rs=typed">Sugerencias</a>
+      <a class="btn" href="https://co.pinterest.com/search/pins/?q=estilo%20casual%20elegante%20hombre%20y%20mujer&rs=typed" target="_blank">Sugerencias</a>
   </section>
 
   <footer>
@@ -514,6 +514,10 @@
       setTimeout(() => {
         overlay.style.display = "none";
       }, 800);
+      // Reproducir música al abrir la invitación
+      document.getElementById('bg-music').play();
+      // Ocultar el botón de música si quieres
+      document.getElementById('play-music').style.display = 'none';
     }
     document.getElementById('play-music').onclick = function() {
       document.getElementById('bg-music').play();
